@@ -1,0 +1,24 @@
+{
+	"name": "trigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "PremtoCloudPipeline",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Hour",
+				"interval": 15,
+				"startTime": "2026-09-28T20:50:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}
