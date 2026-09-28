@@ -1,6 +1,0 @@
-{
-	"name": "PremtoAzureIntegrationRuntime",
-	"properties": {
-		"type": "SelfHosted"
-	}
-}
