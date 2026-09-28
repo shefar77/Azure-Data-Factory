@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "azureindiafactoryy"
+		},
+		"FileLocation_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"FileLocation_properties_typeProperties_host": {
+			"value": "C:\\Users\\fs678\\Downloads\\Azure_Project"
+		},
+		"FileLocation_properties_typeProperties_userId": {
+			"value": "fs678"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://azurecentralindiast.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
