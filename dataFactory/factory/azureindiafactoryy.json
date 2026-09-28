@@ -1,0 +1,15 @@
+{
+	"name": "azureindiafactoryy",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4995212d-24e4-4bb4-be31-b7c5f70a1f17",
+		"tenantId": "d0a26d55-d508-4924-ba9d-8f93f8c166f1"
+	}
+}
