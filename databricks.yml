@@ -1,0 +1,16 @@
+bundle:
+  name: sales-data-pipeline
+
+targets:
+  dev:
+    mode: development
+    default: true
+
+resources:
+  jobs:
+    sales_data_cleaning_job:
+      name: sales-data-cleaning-job
+      tasks:
+        - task_key: clean_sales_data
+          notebook_task:
+            notebook_path: ./src/sales_data_cleaning.py
