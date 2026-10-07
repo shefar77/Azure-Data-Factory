@@ -4,20 +4,14 @@ from pyspark.sql.functions import sum, col, when
 
 # COMMAND ----------
 
-def ensure_mount(container, mount_point):
-    if not any(m.mountPoint == mount_point for m in dbutils.fs.mounts()):
-        dbutils.fs.mount(
-            source=f"wasbs://{container}@azurecentralindiast.blob.core.windows.net",
-            mount_point=mount_point,
-            extra_configs={
-                "fs.azure.account.key.azurecentralindiast.blob.core.windows.net":
-                    dbutils.secrets.get("databricksScope", "secretkv")
-            }
-        )
-    print(f"{mount_point} ready")
+storage_account = "azurecentralindiast"
+spark.conf.set(
+    f"fs.azure.account.key.{storage_account}.blob.core.windows.net",
+    dbutils.secrets.get("databricksScope", "secretkv")
+)
 
-ensure_mount("raw-data", "/mnt/raw-data")
-ensure_mount("transformed-data", "/mnt/transformed-data")
+RAW = f"wasbs://raw-data@{storage_account}.blob.core.windows.net"
+OUT = f"wasbs://transformed-data@{storage_account}.blob.core.windows.net"
 
 # COMMAND ----------
 
@@ -27,11 +21,11 @@ def read_csv(path):
             .option("inferSchema", "true")
             .load(path))
 
-accounts_df = read_csv("/mnt/raw-data/accounts.csv")
-data_dictionary_df = read_csv("/mnt/raw-data/data_dictionary.csv")
-products_df = read_csv("/mnt/raw-data/products.csv")
-sales_pipeline_df = read_csv("/mnt/raw-data/sales_pipeline.csv")
-sales_teams_df = read_csv("/mnt/raw-data/sales_teams.csv")
+accounts_df = read_csv(f"{RAW}/accounts.csv")
+data_dictionary_df = read_csv(f"{RAW}/data_dictionary.csv")
+products_df = read_csv(f"{RAW}/products.csv")
+sales_pipeline_df = read_csv(f"{RAW}/sales_pipeline.csv")
+sales_teams_df = read_csv(f"{RAW}/sales_teams.csv")
 
 # COMMAND ----------
 
@@ -66,7 +60,7 @@ def write_csv(df, name):
     (df.write
        .mode("overwrite")
        .option("header", "true")
-       .csv(f"/mnt/transformed-data/{name}"))
+       .csv(f"{OUT}/{name}"))
     print(f"wrote {name}")
 
 write_csv(accounts_df, "accounts")
