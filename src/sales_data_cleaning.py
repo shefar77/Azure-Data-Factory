@@ -1,4 +1,8 @@
+# Databricks notebook source
+
 print("Hello from the deployed notebook!")
+
+# COMMAND ----------
 
 data = [("North", 100), ("South", 150), ("East", 120), ("West", 90)]
 df = spark.createDataFrame(data, ["region", "sales"])
