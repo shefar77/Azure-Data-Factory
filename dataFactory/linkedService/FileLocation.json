@@ -1,0 +1,17 @@
+{
+	"name": "FileLocation",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "C:\\Users\\fs678\\Downloads\\Azure_Project",
+			"userId": "fs678",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJkMDY4NGU2MC1iMzMxLTQzNWItYTkyNi1iMzdiYjNmOTEwOGUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "PremtoAzureIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
