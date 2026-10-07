@@ -12,5 +12,6 @@ resources:
       name: sales-data-cleaning-job
       tasks:
         - task_key: clean_sales_data
+          existing_cluster_id: 0928-212920-ua6b5d3v
           notebook_task:
             notebook_path: ./src/sales_data_cleaning.py
