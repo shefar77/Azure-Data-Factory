@@ -6,6 +6,11 @@ targets:
     mode: development
     default: true
 
+  prod:
+    mode: production
+    workspace:
+      root_path: /Workspace/Shared/.bundle/${bundle.name}/prod
+
 resources:
   jobs:
     sales_data_cleaning_job:
